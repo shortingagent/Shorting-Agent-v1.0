@@ -1,0 +1,10 @@
+{
+  "rsi_bearish_threshold": 40,
+  "macd_hist_bearish_threshold": 0,
+  "adx_minimum": 25,
+  "bbands_entry_range_factor": 0.99,
+  "sar_stoploss_factor": 1.02,
+  "openai_api_key": "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",
+  "taapi_secret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVlIjoiNjgyNjgxYTY4MDZmZjE2NTFlNDdiNGQwIiwiaWF0IjoxNzQ4MDM3ODM4LCJleHAiOjMzMjUyNTAxODM4fQ.cct01_5olPj9vFkEBZlm1MBkxpR47Im6OSauxVyNp8s"
+}
+  
