@@ -1,10 +1,12 @@
 import json
 import openai
 import pprint
-import streamlit as st
 
 # Load OpenAI key from config.json
-client = openai.OpenAI(api_key=st.secrets["openai"]["api_key"])
+with open("config.json") as f:
+    config = json.load(f)
+
+client = openai.OpenAI(api_key=config["openai_api_key"])
 
 def summarize_indicators(entry):
     pretty_data = pprint.pformat(entry["data"], indent=2, width=80)
