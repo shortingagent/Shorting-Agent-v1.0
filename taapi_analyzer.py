@@ -105,7 +105,7 @@ def analyze_token(entry):
 
     # Shorting strategy
     strategy = {}
-    if bb and sar:
+    if bb and sar and bb.get("valueMiddleBand") is not None and bb.get("valueLowerBand") is not None:
         strategy = {
             "entry_range": (bb["valueMiddleBand"] * 0.985, bb["valueMiddleBand"] * 0.995),
             "stop_loss": sar * 1.015,

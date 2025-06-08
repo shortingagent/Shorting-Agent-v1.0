@@ -1,0 +1,899 @@
+[
+  {
+    "token": "usual",
+    "interval": "15m",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_usual/USDT_15m_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 53.462400286052535
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.1458616913710017
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.1527455753139023
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.001391610300002094,
+            "valueMACDSignal": 0.0018356077458515803,
+            "valueMACDHist": -0.00044399744584948625
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 45.55831918835753
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.15128754985462053,
+            "valueMiddleBand": 0.14783999999999994,
+            "valueLowerBand": 0.14439245014537935
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_15m_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -776245.8999999982
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "usual",
+    "interval": "1h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_usual/USDT_1h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 69.56921820802727
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.13854960336948466
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.1461
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.004771420763690748,
+            "valueMACDSignal": 0.004113689781901011,
+            "valueMACDHist": 0.0006577309817897368
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 46.26308942959866
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.15252145591521338,
+            "valueMiddleBand": 0.14001999999999995,
+            "valueLowerBand": 0.12751854408478652
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -776245.8999999982
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "usual",
+    "interval": "4h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_usual/USDT_4h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 66.0271054585461
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.13386799582054226
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.12848500673472515
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.002897654332557925,
+            "valueMACDSignal": 0.00016414612744588815,
+            "valueMACDHist": 0.002733508205112037
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 20.703923263435026
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.14524161551386203,
+            "valueMiddleBand": 0.13153000000000004,
+            "valueLowerBand": 0.11781838448613804
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_4h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -30665241.60000032
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "usual",
+    "interval": "12h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_usual/USDT_12h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 57.85331530211323
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.13661646429341923
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.121718
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": -0.0012326854383028774,
+            "valueMACDSignal": -0.001981258404709962,
+            "valueMACDHist": 0.0007485729664070844
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 18.44932669126632
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.16752241255933278,
+            "valueMiddleBand": 0.13860999999999954,
+            "valueLowerBand": 0.1096975874406663
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_12h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 66062327.399999745
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "usual",
+    "interval": "1d",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_usual/USDT_1d_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 54.218720549712195
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.1378113496275357
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.17164838838176003
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": -0.0005305938286052636,
+            "valueMACDSignal": 0.00013343928127658813,
+            "valueMACDHist": -0.0006640331098818517
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 17.79727269779193
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.17236990873335972,
+            "valueMiddleBand": 0.1367600000000003,
+            "valueLowerBand": 0.10115009126664086
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_usual/USDT_1d_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 103243143.7000003
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "OP",
+    "interval": "15m",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_OP/USDT_15m_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 56.68618989123384
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.7960510525952305
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.8070805439331918
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.004012908422418304,
+            "valueMACDSignal": 0.004892203660417963,
+            "valueMACDHist": -0.0008792952379996586
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 24.76720419357016
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.8109587165127191,
+            "valueMiddleBand": 0.8023500000000006,
+            "valueLowerBand": 0.793741283487282
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_15m_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -230226.27000000153
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "OP",
+    "interval": "1h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_OP/USDT_1h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 69.9198202098134
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.7716935821845149
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.7855088604205682
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.015810283272016057,
+            "valueMACDSignal": 0.014681927424470536,
+            "valueMACDHist": 0.001128355847545521
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 40.370235567165764
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.8127116958248107,
+            "valueMiddleBand": 0.7807500000000003,
+            "valueLowerBand": 0.7487883041751898
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -230226.27000000153
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "OP",
+    "interval": "4h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_OP/USDT_4h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 68.7640513563536
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.7457355326946595
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.7354799160958546
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.01644848237517782,
+            "valueMACDSignal": 0.0064917289120697014,
+            "valueMACDHist": 0.009956753463108118
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 27.754714738864433
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.8006095681583738,
+            "valueMiddleBand": 0.7385499999999996,
+            "valueLowerBand": 0.6764904318416254
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_4h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": -4526814.189999549
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "OP",
+    "interval": "12h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_OP/USDT_12h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 58.41355934441456
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.748264933296567
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.6733328
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.0010233898319772505,
+            "valueMACDSignal": -0.00408083164861409,
+            "valueMACDHist": 0.005104221480591341
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 16.496495401152522
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.868032971982395,
+            "valueMiddleBand": 0.7558000000000001,
+            "valueLowerBand": 0.6435670280176052
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_12h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 9028665.849998603
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "OP",
+    "interval": "1d",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_OP/USDT_1d_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 55.26530290662245
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 0.7484574348979335
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 0.9060423247871999
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.004645290201377716,
+            "valueMACDSignal": 0.005673619347448087,
+            "valueMACDHist": -0.0010283291460703708
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 16.307420747981613
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 0.9149337261957524,
+            "valueMiddleBand": 0.7413499999999997,
+            "valueLowerBand": 0.567766273804247
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_OP/USDT_1d_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 27766139.03000926
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "APT",
+    "interval": "4h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_APT/USDT_4h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 72.1079335315896
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 5.303580622424806
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 5.201516860669629
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.08695062334041292,
+            "valueMACDSignal": 0.018683941027378873,
+            "valueMACDHist": 0.06826668231303405
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 23.03916686343349
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 5.607998208651132,
+            "valueMiddleBand": 5.259100000000002,
+            "valueLowerBand": 4.910201791348872
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_4h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 603253.9099999929
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "APT",
+    "interval": "12h",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_APT/USDT_12h_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 59.66198912497516
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 5.367639022584084
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 4.8675088
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": -0.02320666859358589,
+            "valueMACDSignal": -0.054909193835042336,
+            "valueMACDHist": 0.03170252524145645
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 16.76956876617236
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 6.009981267730569,
+            "valueMiddleBand": 5.385400000000002,
+            "valueLowerBand": 4.760818732269436
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_12h_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 3149528.7800000184
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  {
+    "token": "APT",
+    "interval": "1d",
+    "exchange": "binance",
+    "data": {
+      "data": [
+        {
+          "id": "binance_APT/USDT_1d_rsi_0",
+          "indicator": "rsi",
+          "result": {
+            "value": 57.02738104510633
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_ema_0",
+          "indicator": "ema",
+          "result": {
+            "value": 5.360186140594645
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_sar_0",
+          "indicator": "sar",
+          "result": {
+            "value": 5.969652944473599
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_macd_0",
+          "indicator": "macd",
+          "result": {
+            "valueMACD": 0.02793418771360212,
+            "valueMACDSignal": 0.048266694722466294,
+            "valueMACDHist": -0.020332507008864173
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_adx_0",
+          "indicator": "adx",
+          "result": {
+            "value": 15.792774007546535
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_bbands_0",
+          "indicator": "bbands",
+          "result": {
+            "valueUpperBand": 6.173908927270509,
+            "valueMiddleBand": 5.388250000000008,
+            "valueLowerBand": 4.602591072729507
+          },
+          "errors": []
+        },
+        {
+          "id": "binance_APT/USDT_1d_volume_0",
+          "indicator": "volume",
+          "result": {
+            "value": 6119731.809998534
+          },
+          "errors": []
+        }
+      ]
+    }
+  }
+]

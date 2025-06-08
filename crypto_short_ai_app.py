@@ -7,6 +7,52 @@ import sys
 sys.stdout = sys.stderr
 from taapi_analyzer import analyze_token
 
+# --- Batch Fetch Logic for TAAPI ---
+import time
+import random
+
+def chunked(iterable, size):
+    for i in range(0, len(iterable), size):
+        yield iterable[i:i + size]
+
+def batch_fetch_and_save(tokens, api_key, timeframes, indicators, outfile="taapi_results.json"):
+    from taapi_backend import fetch_taapi_data
+
+    results = []
+    indicator_payload = [{"indicator": ind} for ind in indicators]
+    total = len(tokens) * len(timeframes)
+    count = 0
+
+    for tf in timeframes:
+        max_calcs = 20
+        batch_size = max(1, max_calcs // len(indicators))  # 20 // 7 = 2
+        for batch in chunked(tokens, batch_size):
+            retry_count = 0
+            success = False
+
+            while not success and retry_count < 5:
+                try:
+                    batch_results = fetch_taapi_data(batch, api_key, tf, indicator_payload)
+                    results.extend(batch_results)
+                    count += len(batch)
+                    success = True
+                except Exception as e:
+                    if "429" in str(e) or "rate" in str(e).lower():
+                        retry_count += 1
+                        sleep_time = 0.5 * (2 ** retry_count) + random.uniform(0, 0.5)
+                        st.warning(f"Rate limit hit. Retrying in {sleep_time:.2f}s...")
+                        time.sleep(sleep_time)
+                    else:
+                        st.error(f"TAAPI error: {e}")
+                        break
+            time.sleep(0.5)
+
+    with open(outfile, "w") as f:
+        json.dump(results, f, indent=2)
+    
+    return results
+
+
 # Define multi-timeframe configurations for trading modes
 trading_modes = {
     "Scalping": {
@@ -23,6 +69,7 @@ TAAPI_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVlIjoiNjgyNjgxYTY4MD
 
 st.set_page_config(page_title="Bearish Token Shorting Agent", layout="wide")
 st.title("📉 Bearish Token Shorting Agent")
+st.sidebar.write("Current Stage:", st.session_state.get("app_stage", "undefined"))
 
 # Navigation state
 if "app_stage" not in st.session_state:
@@ -31,7 +78,27 @@ if "app_stage" not in st.session_state:
 # Step 1: Select trading style and preselect tokens
 if st.session_state.app_stage == "step1":
     st.header("Step 1: Choose Trading Style & Preselect Tokens")
-    style = st.selectbox("Choose your trading style:", ["Scalping", "Swing Trading"])
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        style = st.selectbox("🎯 Trading Style", ["Scalping", "Swing Trading"])
+        st.caption("⏱️ *Affects which timeframes and score thresholds are used later.*")
+
+    with col2:
+        mode_explanations = {
+            "Overextended Gainers": "📈 Big recent gainers likely to reverse (overbought).",
+            "Early Decliners": "🔽 Just starting to drop — early short entries.",
+            "Illiquid Risks": "💧 Low liquidity tokens vulnerable to dumps.",
+            "Declining Momentum": "🚫 Trend slowing down — bearish momentum building."
+        }
+        mode_options = list(mode_explanations.keys())
+        mode_labels = [f"{name} – {mode_explanations[name]}" for name in mode_options]
+
+        selected_mode_label = st.selectbox("📊 Preselection Mode", mode_labels)
+        selected_mode = selected_mode_label.split(" – ")[0]
+        st.caption("🔍 *Defines which types of tokens are selected for testing.*")
+
     if st.button("Fetch and Filter Messari Tokens"):
         st.session_state["trading_style"] = style
         with st.spinner("Fetching from Messari and filtering..."):
@@ -67,50 +134,85 @@ if st.session_state.app_stage == "step1":
                 return pd.DataFrame(tokens)
 
             df = fetch_messari_metrics()
-            # Basic preselection: top tokens by 24h change
-            filtered = df.sort_values(by="change_24h", ascending=False).head(100)
+            df = df.dropna(subset=["change_24h", "real_volume_24h", "market_cap_usd", "sharpe_30d", "volatility_30d"])
+            df = df[df["market_cap_usd"] > 0]
+
+            if selected_mode == "Overextended Gainers":
+                filtered = df[df["change_24h"] > 5]
+                filtered = filtered.sort_values(by="change_24h", ascending=False).head(100)
+
+            elif selected_mode == "Early Decliners":
+                filtered = df[(df["change_24h"] < -0.5) & (df["change_24h"] > -10)]
+                filtered = filtered[df["volume_24h"] > 1000000].sort_values(by="change_24h").head(100)
+
+            elif selected_mode == "Illiquid Risks":
+                df["volume_to_cap"] = df["real_volume_24h"] / df["market_cap_usd"]
+                filtered = df[df["volume_to_cap"] < 0.005].sort_values(by="volume_to_cap").head(100)
+
+            elif selected_mode == "Declining Momentum":
+                filtered = df[
+                    (df["change_24h"] < 0) &
+                    (df["sharpe_30d"] < 0.5) &
+                    (df["volatility_30d"] > 0.05)
+                ].sort_values(by=["sharpe_30d", "volatility_30d"]).head(100)
+
+            else:
+                st.warning("⚠️ Unknown mode selected.")
+                filtered = df.head(0)
+
             st.session_state["messari_filtered"] = filtered
             display_df = filtered.reset_index(drop=True)
             st.success(f"Top {len(display_df)} potential short candidates fetched.")
+            st.info(f"🧠 Preselection mode applied: **{selected_mode}** — {mode_explanations[selected_mode]}")
             st.dataframe(display_df, use_container_width=True)
 
-    if "messari_filtered" in st.session_state:
-        if st.button("➡️ Next: Fetch Indicators"):
-            st.session_state.app_stage = "step2"
-            st.rerun()
+    next_disabled = "messari_filtered" not in st.session_state or st.session_state["messari_filtered"].empty
+
+    st.button(
+        "➡️ Next: Fetch Indicators",
+        disabled=next_disabled,
+        on_click=lambda: st.session_state.update(app_stage="step2") if not next_disabled else None
+)
+
 
 # Step 2: Fetch TAAPI indicators
 elif st.session_state.app_stage == "step2":
     if st.button("⬅️ Back to Step 1"):
         st.session_state.app_stage = "step1"
         st.rerun()
-    st.header("Step 2: Fetch Indicators from TAAPI")
-    if "messari_filtered" not in st.session_state:
-        st.warning("⚠️ Please complete Step 1 to load tokens.")
-    else:
-        if st.button("Fetch Indicators from TAAPI"):
-            df = st.session_state["messari_filtered"]
-            tokens = df["symbol"].dropna().str.upper().apply(lambda x: f"{x}/USDT").unique().tolist()
-            progress = st.progress(0, text="Fetching token indicators...")
-            results = []
-            total = len(tokens)
-            for i, token in enumerate(tokens):
-                batch_results = fetch_taapi_data([token], TAAPI_API_KEY)
-                results.extend(batch_results)
-                progress.progress((i + 1) / total, text=f"Processed {i + 1} of {total} tokens")
 
+    st.header("Step 2: Fetch TAAPI Indicators Automatically")
+
+    df = st.session_state.get("messari_filtered")
+    if df is None or df.empty:
+        st.error("❌ No tokens available. Please complete Step 1 first.")
+        st.stop()
+
+    style = st.session_state.get("trading_style", "Swing Trading")
+    config = trading_modes.get(style)
+    timeframes = config["timeframes"]
+
+    tokens = df["symbol"].dropna().str.upper().apply(lambda x: f"{x}/USDT").unique().tolist()
+    indicators = ["rsi", "ema", "macd", "sar", "bbands", "adx", "volume"]
+    api_key = TAAPI_API_KEY
+
+    with st.spinner("⏳ Fetching indicator data from TAAPI..."):
+        try:
+            results = batch_fetch_and_save(tokens, api_key, timeframes, indicators)
             st.session_state["taapi_data"] = results
-            st.success(f"✅ TAAPI indicator data fetched. {len(results)} entries.")
+            st.success(f"✅ {len(results)} indicator entries saved to `taapi_results.json`.")
+        except Exception as e:
+            st.error(f"🔥 TAAPI fetch failed: {e}")
+            st.stop()
 
-        if "taapi_data" in st.session_state:
-            if st.button("➡️ Next: Analyze & Strategy"):
-                st.session_state.app_stage = "step3"
-                st.rerun()
+    if st.button("➡️ Next: Analyze & Strategy"):
+        st.session_state.app_stage = "step3"
+        st.rerun()
 
 # Step 3: Multi-Timeframe Validation & Strategy Display
 elif st.session_state.app_stage == "step3":
-    if st.button("⬅️ Back to Step 2"):
-        st.session_state.app_stage = "step2"
+    if st.button("🔄 Restart Test"):
+        st.session_state.app_stage = "step1"
         st.rerun()
     st.header("Step 3: Multi-Timeframe Validation & Strategy")
     if "taapi_data" not in st.session_state or not st.session_state["taapi_data"]:
@@ -121,7 +223,6 @@ elif st.session_state.app_stage == "step3":
         timeframes = config["timeframes"]
         thresholds = config["thresholds"]
 
-        # Group entries by token
         from collections import defaultdict
         grouped = defaultdict(dict)
         for entry in st.session_state["taapi_data"]:
@@ -143,7 +244,7 @@ elif st.session_state.app_stage == "step3":
                     break
                 details[tf] = {"score": score, "breakdown": breakdown}
                 total_score += score
-                strategy = strat  # last timeframe strategy
+                strategy = strat
             if is_valid:
                 valid_tokens.append({
                     "token": token,
@@ -152,7 +253,9 @@ elif st.session_state.app_stage == "step3":
                     "strategy": strategy
                 })
 
-        st.subheader(f"📊 {style} Candidates: {len(valid_tokens)} tokens")
+        valid_tokens = sorted(valid_tokens, key=lambda x: x["total_score"], reverse=True)
+
+        st.subheader(f"📊 {style} Candidates: {len(valid_tokens)} tokens (sorted by score)")
         for item in valid_tokens:
             st.markdown(f"### {item['token']} (Score: {item['total_score']})")
             for tf, info in item['details'].items():
